@@ -1,0 +1,13 @@
+<h1>Welcome to the Homepage</h1>
+<p>
+  This is where you'll find user profiles with Devise authentication.
+</p>
+
+<% if user_signed_in? %>
+  <p>You are signed in!</p>
+<% else %>
+  <p>
+    <%= link_to "Sign Up Here!", new_user_registration_path, 
+      class: "btn btn-primary" %>
+  </p>
+<% end %>

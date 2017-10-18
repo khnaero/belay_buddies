@@ -4,7 +4,7 @@
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
-      <%= f.input :username, autofocus: true %>
+      <%= f.input :username, autofocus: true, required: false %>
       <%= f.input :email %>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

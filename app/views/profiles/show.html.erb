@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Acceptance:</strong>
+  <%= @profile.acceptance %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @profile.city %>
+</p>
+
+<p>
+  <strong>State province:</strong>
+  <%= @profile.state_province %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @profile.country %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @profile.description %>
+</p>
+
+<p>
+  <strong>Aid:</strong>
+  <%= @profile.aid %>
+</p>
+
+<p>
+  <strong>Trad:</strong>
+  <%= @profile.trad %>
+</p>
+
+<p>
+  <strong>Bouldering:</strong>
+  <%= @profile.bouldering %>
+</p>
+
+<p>
+  <strong>Sport:</strong>
+  <%= @profile.sport %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  acceptance: MyString
+  city: MyString
+  state_province: MyString
+  country: MyString
+  description: MyText
+  aid: MyString
+  trad: MyString
+  bouldering: MyString
+  sport: MyString
+
+two:
+  acceptance: MyString
+  city: MyString
+  state_province: MyString
+  country: MyString
+  description: MyText
+  aid: MyString
+  trad: MyString
+  bouldering: MyString
+  sport: MyString

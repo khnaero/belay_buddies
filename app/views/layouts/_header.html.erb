@@ -15,7 +15,8 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li><%= link_to "Profile", "#" %></li>
+            <li><%= link_to "Create Profile", new_profile_path %></li>
+            <li><%= link_to "Edit Profile", "#" %></li>
             <li><%= link_to "Settings", edit_user_registration_path %></li>
             <li><%= link_to raw('<span class="glyphicon glyphicon-log-out"></span> 
                   Logout'), destroy_user_session_path, method: :delete %></li>

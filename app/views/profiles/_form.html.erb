@@ -1,19 +1,13 @@
-<%= simple_form_for(@profile) do |f| %>
+<%= simple_form_for([@user, @profile]) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :acceptance %>
-    <%= f.input :city %>
-    <%= f.input :state_province %>
-    <%#= f.input :country %>
-    <%= f.input :description %>
-    <%= f.input :aid %>
-    <%= f.input :trad %>
-    <%= f.input :bouldering %>
-    <%= f.input :sport %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.input :acceptance %>
+  <%= f.input :city %>
+  <%= f.input :state_province, label: "State/Province" %>
+  <%#= f.input :country %>
+  <%= f.input :aid, placeholder: "5.8 A2" %>
+  <%= f.input :trad, placeholder: "5.9" %>
+  <%= f.input :bouldering, placeholder: "V3" %>
+  <%= f.input :sport, placeholder: "5.10b" %>
+  <%= f.input :description, label: "About Me", placeholder: "Tell everyone a little about yourself." %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

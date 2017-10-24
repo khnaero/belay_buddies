@@ -1,9 +1,9 @@
 <%= simple_form_for([@user, @profile]) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :acceptance %>
+  <%= f.input :acceptance, collection: ["Yes", "Not at the moment"],include_blank: false , label: "Are you willing to connect with climbers?" %>
   <%= f.input :city %>
   <%= f.input :state_province, label: "State/Province" %>
-  <%#= f.input :country %>
+  <%= f.input :country, prompt: "Select a Country" %>
   <%= f.input :aid, placeholder: "5.8 A2" %>
   <%= f.input :trad, placeholder: "5.9" %>
   <%= f.input :bouldering, placeholder: "V3" %>

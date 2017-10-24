@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = current_user.create_profile(profile_params)
-    @profile.user_id = @user_id
+    # @profile.user_id = @user.id
 
     respond_to do |format|
       if @profile.save
@@ -51,11 +51,6 @@ class ProfilesController < ApplicationController
 
   private
     def set_profile
-      #@profile = current_user.profile || current_user.build_profile
-      #@profile = Profile.find_by(user_id: params[:id])
-      #@profile = Profile.find(params[:id])
-      #@profile = current_user.profile.find(params[:id])
-      #@profile = Profile.find_by user_id: current_user.id
       @profile = current_user.profile
     end
 

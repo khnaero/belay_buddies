@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update]
+  before_action :set_profile, only: [:edit, :update]
   before_action :set_user
   before_action :authenticate_user!, except: [:index, :show]
 
@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @profile = Profile.find_by(user_id: params[:user_id])
   end
 
   def new
@@ -19,7 +20,6 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = current_user.create_profile(profile_params)
-    # @profile.user_id = @user.id
 
     respond_to do |format|
       if @profile.save
@@ -41,17 +41,10 @@ class ProfilesController < ApplicationController
     # end
   end
 
-  # def destroy
-  #   @profile.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
-
   private
     def set_profile
-      @profile = current_user.profile
+      @profile = Profile.find_by user_id: current_user.id
+      # @profile = current_user.profile
     end
 
     def set_user

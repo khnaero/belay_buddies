@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_one :profile, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   before_create :build_profile
   accepts_nested_attributes_for :profile 
   # Include default devise modules. Others available are:

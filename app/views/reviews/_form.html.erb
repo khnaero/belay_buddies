@@ -1,0 +1,6 @@
+<%= simple_form_for([@profile, @review]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

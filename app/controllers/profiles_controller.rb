@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find_by(user_id: params[:user_id])
+    @reviews = Review.where(profile_id: @profile.id).order("created_at DESC")
   end
 
   def new

@@ -2,6 +2,11 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-4">
+        <h1>( Profile Pic )</h1>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="table-responsive">
           <table class="table">
             <tbody>
@@ -53,17 +58,17 @@
           <% end %>
         </div>
       </div>
-<!--       <div class="col-md-7 col-md-offset-1">
-        <%# if @reviews.blank? %>
+      <div class="col-md-7 col-md-offset-1">
+        <!--<%# if @reviews.blank? %>
           <h3>Be the first to write a review!</h3>
-        <%# else %>
-          <%# @reviews.each do |review| %>
-            <p><%#= review.rating %></p>
-            <p><%#= review.comment %></p>
-            <p>By <%#= review.user.username %></p>
+        <%# else %> -->
+          <% @reviews.each do |review| %>
+            <p><%= review.rating %></p>
+            <p><%= review.comment %></p>
+            <p>By <%= review.user.username %></p>
           <%# end %>
-        <%# end %>
-      </div> -->
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

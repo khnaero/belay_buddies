@@ -1,14 +1,14 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :set_profile
 
-  def index
-    @reviews = Review.all
-  end
+  # def index
+  #   @reviews = Review.all
+  # end
 
-  def show
-  end
+  # def show
+  # end
 
   def new
     @review = Review.new
@@ -47,7 +47,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to rooth_path, notice: 'Review was successfully destroyed.'
+    redirect_to root_path, notice: 'Review was successfully destroyed.'
   end
 
   private

@@ -22,15 +22,13 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.profile_id = @profile.id
 
-    # respond_to do |format|
-      if @review.save
-        redirect_to user_profile_path(@profile), notice: 'Review was successfully created.'
-        # format.json { render :show, status: :created, location: @review }
-      else
-        render :new 
-        # format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
-    # end
+    if current_user.id == @profile.user_id
+      redirect_to user_profile_path(@profile), notice: 'You cannot review yourself.'
+    elsif @review.save
+      redirect_to user_profile_path(@profile), notice: 'Review was successfully created.'
+    else
+      render :new 
+    end
   end
 
   def update

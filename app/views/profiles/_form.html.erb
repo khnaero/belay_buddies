@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <%= f.input :acceptance, collection: ["Yes", "Not at the moment"],include_blank: false , label: "Are you willing to connect with climbers?" %>
   <%= f.input :city %>
-  <%= f.input :state_province, label: "State/Province" %>
+  <%= f.input :state_province, label: "State/Province", placeholder: "No abbreviations please." %>
   <%= f.input :country, prompt: "Select a Country" %>
   <%= f.input :aid, placeholder: "5.8 A2" %>
   <%= f.input :trad, placeholder: "5.9" %>

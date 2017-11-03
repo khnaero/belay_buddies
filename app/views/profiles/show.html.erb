@@ -15,7 +15,7 @@
                 <td><%= @profile.user.username %></td>
               </tr>
               <tr>
-                <td><strong>Acceptance:</strong></td>
+                <td><strong>Will You Connect with a Belay Buddy?:</strong></td>
                 <td><%= @profile.acceptance %></td>
               </tr>
               <tr>
@@ -59,14 +59,18 @@
         </div>
       </div>
       <div class="col-md-7 col-md-offset-1">
-        <!--<%# if @reviews.blank? %>
-          <h3>Be the first to write a review!</h3>
-        <%# else %> -->
+        <h1 class="review_title">Reviews</h1>
+        <% if @reviews.blank? %>
+          <h3>There are no reviews.</h3>
+        <% else %>
           <% @reviews.each do |review| %>
-            <p><%= review.rating %></p>
-            <p><%= review.comment %></p>
-            <p>By <%= review.user.username %></p>
-          <%# end %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              <p><%= review.comment %></p>
+              <p>By <%= review.user.username %></p>
+              <br>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -75,3 +79,13 @@
 
 <!--<%#= link_to 'Edit', edit_profile_path(@profile) %> |
 <%#= link_to 'Back', profiles_path %> -->
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

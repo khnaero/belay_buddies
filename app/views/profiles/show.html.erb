@@ -15,6 +15,10 @@
                 <td><%= @profile.user.username %></td>
               </tr>
               <tr>
+                <td><div class="star-rating" data-score= <%= @avg_review %> ></div></td>
+                <td><em><%= pluralize(@reviews.length, 'review') %></em></td>
+              </tr>
+              <tr>
                 <td><strong>Will You Connect with a Belay Buddy?:</strong></td>
                 <td><%= @profile.acceptance %></td>
               </tr>
@@ -53,8 +57,9 @@
               </tr>
             </tbody>
           </table>
+          <!-- <%#= create_or_edit_review_path(@profile) %> -->
           <% if user_signed_in? && current_user.id != @profile.id %>
-            <%= link_to "Write a Review", new_profile_review_path(@profile) %>
+            <%= link_to "Write or edit a Review", new_profile_review_path(@profile), class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>
@@ -67,8 +72,7 @@
             <div class="reviews">
               <div class="star-rating" data-score= <%= review.rating %> ></div>
               <p><%= review.comment %></p>
-              <p>By <%= review.user.username %></p>
-              <br>
+              <p>By <em><%= review.user.username %></em></p>
             </div>
           <% end %>
         <% end %>

@@ -10,4 +10,8 @@ class User < ApplicationRecord
 
   validates :username,
             presence: true
+
+  # def profile_review(profile)
+  #   Review.find_by(user_id: self, profile_id: profile)
+  # end
 end

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     resource :profile, only: [:index, :edit, :show, :update]
   end
 
-  resources :profiles, :shallow => true, only: [] do
+  resources :profiles do
+  # resources :profiles, :shallow => true, only: [] do
     resources :reviews
     # resources :reviews, except: [:show, :index]
   end

@@ -11,7 +11,13 @@ class ReviewsController < ApplicationController
   # end
 
   def new
-    @review = Review.new
+    # @review = Review.new
+    if current_user 
+      @review = Review.where(user_id: current_user.id, profile_id: params[:profile_id]).first_or_initialize 
+      if @review.id.present? 
+        render 'edit' 
+      end 
+    end
   end
 
   def edit
@@ -34,7 +40,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to user_profile_path(@profile), notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }

@@ -18,9 +18,3 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-
-$(document).on('turbolinks:load', function(){
-  $("table[role='datatable']").each(function(){
-    $(this).DataTable({});
-  });
-});
